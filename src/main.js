@@ -62,7 +62,7 @@ function render(renderData) {
                 <div class="position-relative">
                   <img
                     src="${imgUrl}"
-                    class="card-img-top ticket-card__top-image"
+                    class="card-img-top ticket-card__top-image object-fit-cover"
                     alt="${name}套票"
                   />
                   <div
