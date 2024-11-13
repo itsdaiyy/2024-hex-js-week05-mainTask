@@ -1,12 +1,22 @@
-.form-container {
-  max-width: 920px;
+// container
+@media (min-width: 992px) {
+  .form-container {
+    max-width: 920px;
+  }
 }
 
+@media (min-width: 1200px) {
+  .tickets-container {
+    max-width: 1100px;
+  }
+}
+
+// form input color
 .add-ticket-form {
   select,
   input::placeholder,
   textarea::placeholder {
-    color: rgba(129, 138, 145, 1);
+    color: $neutral-600;
   }
   input,
   select,
@@ -17,6 +27,17 @@
   }
 }
 
+// ticket card
+.location-tag {
+  top: -13px;
+  left: -0.5px;
+}
+
+.ticket-card__top-image {
+  aspect-ratio: 350/180;
+}
+
+// can't find area
 .cantFind-area {
   display: none;
   margin-top: 70px;
@@ -38,4 +59,14 @@
   .cantFind-area {
     margin-top: 0px;
   }
+}
+
+// utilities
+.border-right {
+  border-radius: 0 5px 5px 0;
+}
+
+.debug,
+.debug * {
+  outline: 1px solid lightblue;
 }
