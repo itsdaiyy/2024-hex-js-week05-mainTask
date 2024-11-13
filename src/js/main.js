@@ -52,20 +52,19 @@ function render(renderData) {
   renderData.forEach((ticket) => {
     const { name, imgUrl, area, description, group, price, rate } = ticket;
     ticketsRow.innerHTML += `<li class="col-lg-4 col-md-6">
-              <div class="card ticket-card shadow h-100">
+              <div class="card ticket-card shadow h-100 border-neutral-400">
                 <div class="position-relative">
                   <img
                     src="${imgUrl}"
-                    class="card-img-top"
-                    alt=""
+                    class="card-img-top ticket-card__top-image"
+                    alt="${name}套票"
                   />
                   <div
-                    class="position-absolute top-0 translate-middle-y bg-primary-100 text-white px-6 py-3 border-right left-neg-1"
+                    class="position-absolute bg-primary-100 text-white px-6 py-3 border-right location-tag"
                   >
                     ${area}
                   </div>
                 </div>
-
                 <div class="card-body p-6 position-relative">
                   <div
                     class="position-absolute start-0 top-0 translate-middle-y bg-primary-200 text-white px-3 py-2 border-right "
@@ -82,7 +81,7 @@ function render(renderData) {
                   </p>
                 </div>
                 <div
-                  class="card-body d-flex justify-content-between align-items-center text-primary fw-medium"
+                  class="d-flex justify-content-between align-items-center text-primary fw-medium px-6 pb-6"
                 >
                   <p>
                     <i class="bi bi-exclamation-circle-fill me-3"></i
