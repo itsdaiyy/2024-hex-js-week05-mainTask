@@ -1,5 +1,5 @@
 // Import our custom CSS
-import "../assets/scss/all.scss";
+import "./assets/scss/all.scss";
 import "bootstrap/dist/js/bootstrap.min.js";
 let data = [
   {
@@ -116,6 +116,7 @@ function clearRender() {
 function filterRenderData(renderTarget) {
   if (renderTarget === "") {
     init();
+    cantFindArea.style.display = "none";
     return;
   }
 
@@ -173,7 +174,7 @@ addTicketBtn.addEventListener("click", function (e) {
     errorMsg = "套票組數必須至少為 1";
   } else if (obj.rate < 1 || obj.rate > 10) {
     errorMsg = "套票星級必須在 1 ~ 10 之間";
-  } else if (obj.description.length > 100) {
+  } else if (obj.description.length > 100 || !obj.description) {
     errorMsg = "必須填入套票描述，且不能超過 100 字";
   }
 
