@@ -42,6 +42,7 @@ let data = [
 // # 初始化邏輯
 const ticketsRow = document.querySelector(".tickets-row");
 const searchResultText = document.querySelector("#searchResult-text");
+const cantFindArea = document.querySelector(".cantFind-area");
 
 function init() {
   render(data);
@@ -49,6 +50,11 @@ function init() {
 }
 
 function render(renderData) {
+  if (renderData.length > 0) {
+    cantFindArea.style.display = "none";
+  } else {
+    cantFindArea.style.display = "block";
+  }
   renderData.forEach((ticket) => {
     const { name, imgUrl, area, description, group, price, rate } = ticket;
     ticketsRow.innerHTML += `<li class="col-lg-4 col-md-6">
@@ -101,7 +107,6 @@ init();
 
 // # 篩選邏輯
 const regionSearchSelect = document.querySelector("#regionSearch");
-const cantFindArea = document.querySelector(".cantFind-area");
 
 // 監聽 selector
 regionSearchSelect.addEventListener("change", function (e) {
@@ -116,18 +121,11 @@ function clearRender() {
 function filterRenderData(renderTarget) {
   if (renderTarget === "") {
     init();
-    cantFindArea.style.display = "none";
     return;
   }
 
   const renderData = data.filter((ticket) => ticket.area === renderTarget);
   searchResultText.textContent = `本次搜尋共 ${renderData.length} 筆資料`;
-
-  if (renderData.length > 0) {
-    cantFindArea.style.display = "none";
-  } else {
-    cantFindArea.style.display = "block";
-  }
   render(renderData);
 }
 
